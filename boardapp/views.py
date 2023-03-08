@@ -27,3 +27,6 @@ def loginfunc(request):
         else:
             return render(request, 'boardapp/login.html', {'context': 'not logged in'})
     return render(request, 'boardapp/login.html', {'context': 'get method'})
+
+def listfunc(request):
+    return render(request, 'boardapp/list.html', {})
