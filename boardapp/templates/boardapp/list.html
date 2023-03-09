@@ -1,18 +1,14 @@
 {% extends 'boardapp/base.html' %}
 
-{% block header %}
-<div class="alert alert-primary" role="alert">
-  <h3>社内SNS</h3>
-</div>
-{% endblock header %}
-
 {% block content %}
 <div class="container">
-  <div class="alert alert-success" role="alert">
-    <p>タイトル：</p>
-    <p>投稿者：</p>
+  {% for item in object_list %}
+  <div class="alert alert-light mt-3" role="alert">
+    <p>タイトル：{{ item.title }}</p>
+    <p>投稿者：{{ item.auther }}</p>
     <a href="#" class="btn btn-primary" role="button" aria-disabled="true">Primary link</a>
     <a href="#" class="btn btn-secondary" role="button" aria-disabled="true">Link</a>
   </div>
+  {% endfor %}
 </div>
 {% endblock content %}

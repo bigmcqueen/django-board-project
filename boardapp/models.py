@@ -10,4 +10,3 @@ class BoardModel(models.Model):
     good = models.IntegerField()
     read = models.IntegerField()
     readtext = models.TextField()
-    

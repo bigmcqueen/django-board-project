@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.db import IntegrityError
+from .models import BoardModel
 
 # Create your views here.
 
@@ -29,4 +30,5 @@ def loginfunc(request):
     return render(request, 'boardapp/login.html', {'context': 'get method'})
 
 def listfunc(request):
-    return render(request, 'boardapp/list.html', {})
+    object_list = BoardModel.objects.all()
+    return render(request, 'boardapp/list.html', {'object_list': object_list})
