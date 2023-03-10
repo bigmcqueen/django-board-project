@@ -1,0 +1,21 @@
+{% extends 'boardapp/base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">
+      <a href="{% url 'list' %}" class="link-dark text-decoration-none">社内SNS</a>
+    </span>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="alert alert-light mt-3" role="alert">
+    <p>タイトル：{{ object.title }}</p>
+    <p>投稿者：{{ object.auther }}</p>
+    <p><img src="{{ object.snsimage.url }}" width="200" alt=""></p>
+    <a href="#" class="btn btn-primary" role="button" aria-disabled="true">いいね！する</a>
+    <a href="#" class="btn btn-secondary" role="button" aria-disabled="true">既読にする</a>
+  </div>
+</div>
+{% endblock content %}

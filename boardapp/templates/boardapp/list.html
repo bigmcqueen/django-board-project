@@ -3,19 +3,21 @@
 {% block content %}
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">社内SNS</span>
+    <span class="navbar-brand mb-0 h1">
+      <a href="{% url 'list' %}" class="link-dark text-decoration-none">社内SNS</a>
+    </span>
+    <a href="{% url 'logout' %}">ログアウト</a>
   </div>
 </nav>
 
 <div class="container">
   {% for item in object_list %}
   <div class="alert alert-light mt-3" role="alert">
-    <p>タイトル：{{ item.title }}</p>
+    <p>タイトル：<a href="{% url 'detail' item.pk %}">{{ item.title }}</a></p>
     <p>投稿者：{{ item.auther }}</p>
     <a href="#" class="btn btn-primary" role="button" aria-disabled="true">Primary link</a>
     <a href="#" class="btn btn-secondary" role="button" aria-disabled="true">Link</a>
   </div>
   {% endfor %}
-  <a href="{% url 'logout' %}">ログアウト</a>
 </div>
 {% endblock content %}
