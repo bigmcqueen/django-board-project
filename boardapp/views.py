@@ -15,7 +15,7 @@ def signupfunc(request):
             return render(request, 'boardapp/signup.html', {'name': 'Tom'})
         except IntegrityError:
             return render(request, 'boardapp/signup.html', {'error': 'このユーザーはすでに登録されています！'})
-    return render(request, 'signup.html')
+    return render(request, 'boardapp/signup.html')
 
 def loginfunc(request):
     if request.method == 'POST':
