@@ -36,6 +36,7 @@ def listfunc(request):
     object_list = BoardModel.objects.all()
     return render(request, 'boardapp/list.html', {'object_list': object_list})
 
+@login_required
 def logoutfunc(request):
     logout(request)
     return redirect('login')
@@ -44,3 +45,10 @@ def logoutfunc(request):
 def detailfunc(request, pk):
     object = get_object_or_404(BoardModel, pk=pk)
     return render(request, 'boardapp/detail.html', {'object': object})
+
+@login_required
+def goodfunc(request, pk):
+    object = BoardModel.objects.get(pk=pk)
+    object.good += 1
+    object.save()
+    return redirect('list')
