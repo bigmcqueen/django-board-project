@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from .models import BoardModel
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -64,3 +67,10 @@ def readfunc(request, pk):
         object.readtext = object.readtext + ' ' + username
         object.save()
         return redirect('list')
+    
+class BoadCreate(LoginRequiredMixin, CreateView):
+    template_name = 'boardapp/create.html'
+    model = BoardModel
+    fields = ('title', 'content', 'auther', 'snsimage')
+    success_url = reverse_lazy('list')
+    login_url = 'login/'

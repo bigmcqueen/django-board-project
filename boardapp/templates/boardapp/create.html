@@ -1,0 +1,11 @@
+{% extends 'boardapp/base.html' %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+  <p>Title:<input type="text" name="title"></p>
+  <p>Content:<textarea name="content" cols="30" rows="10"></textarea></p>
+  <p><input type="file" name="snsimage"></p>
+  <input type="hidden" name="auther" value="{{ user.username }}">
+  <input type="submit" value="Create">
+</form>
+{% endblock content %}
