@@ -1,7 +1,12 @@
 {% extends 'board/base.html' %}
 
 {% block content %}
-<h1>サインアップ画面</h1>
-{{ form.as_p }}
-<input type="submit" value="サインアップ">
+<div class="container">
+  <h1>サインアップ画面</h1>
+  <form method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="サインアップ">
+  </form>
+  <p class="mt-3"><a href="{% url 'top' %}">戻る</a></p>
+</div>
 {% endblock content %}
