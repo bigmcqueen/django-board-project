@@ -1,1 +1,1 @@
-# djangoboardproject
+# django_board_project
