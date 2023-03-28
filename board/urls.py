@@ -1,7 +1,8 @@
 from django.urls import path, include
 
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('', views.top, name='top'),
+    path('', top, name='top'),
+    path('signup/', signup, name='signup')
 ]
