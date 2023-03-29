@@ -16,12 +16,11 @@ def signup(request):
     # フォームの送信時にエラーが無いかをチェックする
     if form.is_valid():
         # cleaned_data[フィールド名]で値をそれぞれ変数へ入れていく
-        name = form.cleaned_data['name']
         email = form.cleaned_data['email']
         password = form.cleaned_data['password']
         try:
             # User.objects.create_user()を実行した時点で、userは作成される
-            user = User.objects.create_user(name, email, password)
+            user = User.objects.create_user(username=email, password=password)
         except IntegrityError:
             params['context'] = 'このユーザーはすでに登録されています'
             return render(request, template_name, params)
