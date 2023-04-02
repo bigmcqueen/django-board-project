@@ -4,6 +4,7 @@ from django.db import IntegrityError
 from django.contrib.auth import authenticate, login
 
 from .forms import *
+from .models import *
 
 # Create your views here.
 def top(request):
@@ -49,4 +50,8 @@ def signin(request):
 
 def list_view(request):
     template_name = 'board/list.html'
-    return render(request, template_name, {})
+
+    object_list = BoardModel.objects.all()
+    params = {'object_list': object_list}
+
+    return render(request, template_name, params)
