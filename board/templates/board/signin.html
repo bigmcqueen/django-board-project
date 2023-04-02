@@ -1,5 +1,4 @@
 {% extends 'board/base.html' %}
-{% load widget_tweaks %}
 
 {% block content %}
 <div class="container">
@@ -7,14 +6,14 @@
     <h1>ログイン</h1>
   </div>
   <div class="d-flex align-items-center justify-content-center mt-5">
-    {{ context }}
     <form method="POST">{% csrf_token %}
+      {{ context }}
       {{ form.as_p }}
+      <div class="d-flex align-items-center justify-content-center mt-3">
+        <a href="{% url 'top' %}" class="me-5">戻る</a>
+        <input type="submit" value="ログイン" name="login">
+      </div>
     </form>
-  </div>
-  <div class="d-flex align-items-center justify-content-center mt-3">
-    <a href="{% url 'top' %}" class="me-5">戻る</a>
-    <input type="submit" value="ログイン">
   </div>
 </div>
 {% endblock content %}

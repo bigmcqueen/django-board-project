@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="container">
+  {% if user.is_authenticatedS %}
   <div class="list-group">
     {% for item in object_list %}
     <a href="#" class="list-group-item list-group-item-action">
@@ -13,5 +14,14 @@
     </a>
     {% endfor %}
   </div>
+  {% else %}
+  <div class="d-flex align-items-center justify-content-center">
+    <h1>ログインしてください</h1>
+  </div>
+  <div class="d-flex align-items-center justify-content-center mt-3">
+    <a href="{% url 'top' %}" class="me-5">トップ</a>
+    <a href="{% url 'login' %}">ログイン</a>
+  </div>
+  {% endif %}
 </div>
 {% endblock content %}
