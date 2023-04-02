@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from .forms import *
 from .models import *
@@ -47,6 +48,11 @@ def signin(request):
             return render(request, template_name, params)
         
     return render(request, template_name, params)
+
+@login_required
+def signout(request):
+    logout(request)
+    return redirect('login')
 
 def list_view(request):
     template_name = 'board/list.html'
