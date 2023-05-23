@@ -1,0 +1,30 @@
+{% extends 'board/base.html' %}
+
+{% block content %}
+<h1 class="mb-3 border-bottom">投稿一覧</h1>
+
+{% for content in contents %}
+<div class="d-flex flex-row ">
+  <div class="p-2">{{ content.id }}</div>
+  <div class="p-2">{{ content.name }}</div>
+</div>
+<p>{{ content.content }}</p>
+{% endfor %}
+
+<h2 class="mb-3 mt-5 border-bottom">投稿欄</h2>
+<form method="POST">{% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">お名前</label>
+    <br>
+    {{ form.name }}
+  </div>
+  <div class="mb-3">
+    <label class="form-label">内容</label>
+    <br>
+    {{ form.content }}
+  </div>
+  <div class="mb-3">
+    <button type="submit">送信</button>
+  </div>
+</form>
+{% endblock content %}
