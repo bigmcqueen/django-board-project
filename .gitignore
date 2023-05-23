@@ -131,3 +131,4 @@ dmypy.json
 # Add
 .DS_Store
 .vscode
+staticfiles
