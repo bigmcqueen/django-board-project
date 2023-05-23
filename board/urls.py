@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import board_list
+
+from .views import board
 
 app_name = 'board'
 
 urlpatterns = [
-    path('', board_list, name='board_list'),
+    path('', board, name='board'),
 ]
